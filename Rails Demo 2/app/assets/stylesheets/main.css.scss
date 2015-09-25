@@ -1,0 +1,40 @@
+$header-bar-color: #f4f4f4;;
+$body-color: #e1e3e4;
+$raspberry-logo-color: #D15271;
+$maroon-text-color: #5e0231;
+$light-blue: #60C2D2;
+$darker-blue: #49A4B3;
+
+
+body {background-color: $body-color;}
+
+.row { background-color: $body-color; }
+
+.cafes-container {background-color: $body-color;}
+
+.add_title_padding {
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+.add_content_padding {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 4.5%;
+}
+
+.add_left_padding {
+  padding-left: 2%;
+}
+
+.coffee_padding {
+	padding-left: 4%;
+}
+
+#received, #given, #search-wrapper {
+	background-color: $header-bar-color;
+}
+
+.add_margin {
+  margin: 2%;
+}

@@ -1,0 +1,14 @@
+<div class="row">
+<br><h1>Edit <%= @user.username %>'s Profile</h1>
+<br>
+<h3 class="subheader">Change Profile Picture</h3>
+<br>
+<%= form_for(:user, method: :put, url: user_path(@user)) do |f|%>
+  <%= f.hidden_field(:picture_cache)%>
+  <div class="upload"><span id="upload_display" class="label">No File Chosen</span><%= f.file_field(:picture, :id=>"upload_input")%></div>
+  <br>
+  <%= f.submit "Upload Picture", :class => "button tiny round" %>
+<%end%>
+</div>
+
+<%= cloudinary_js_config %>

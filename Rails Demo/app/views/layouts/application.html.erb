@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Dream Catcher" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <script type="text/javascript" src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.png' %>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata|Fredericka+the+Great|Special+Elite' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <%= render "shared/header" if current_dreamer %>
+
+    <% if flash[:error] %>
+      <%= render partial: "shared/errors", locals: { errors: flash[:error] } %>
+    <% end %>
+    <main class='center row'>
+      <div id="<%= 'container' if current_dreamer %>">
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+
+</html>

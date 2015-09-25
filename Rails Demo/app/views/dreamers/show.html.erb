@@ -1,0 +1,35 @@
+<div data-form="profile">
+  <%= render "edit" %>
+</div>
+
+<p>
+  <h1 id="dreamers-profile" class="center">
+    <% if @dreamer == current_dreamer %>
+    <a><img data-link="edit-profile" class="edit-icon" src="<%=image_path("edit-icon.png")%>"/></a>
+    <% end %>
+    <%= @dreamer.username %>'s Profile
+  </h1>
+
+    <% if current_dreamer == @dreamer %>
+      <%= link_to 'Set up Reality Check', reality_check_path, class: 'btn btn-default btn-sm' %>
+    <% else %>
+      <%= link_to 'Send message', new_message_path(to: @dreamer.id), class: 'btn btn-default btn-sm' %>
+    <% end %>
+</p>
+
+<div data-div="profile">
+  <%= render "stats" %>
+</div>
+
+<hr>
+<h3 class="subtitle">Recent Dreams</h3>
+<% if @dreamer.dreams.empty? %>
+  <p>This dreamer has not registered any dreams yet.</p>
+<% else %>
+  <% @dreamer.top_dreams.each do |dream| %>
+    <%= display_date(dream.created_at) %>:
+    <%= link_to dream.title, dream_path(dream) %>
+    <%= image_tag("fav-icon.png", class: "icon")%><%= dream.favorites.count %>
+    <br>
+  <% end %>
+<% end %>

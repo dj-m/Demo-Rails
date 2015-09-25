@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: DreamCatcher_development
+
+test:
+  <<: *default
+  database: DreamCatcher_test
+
+production:
+  <<: *default
+  database: DreamCatcher_production
+  username: DreamCatcher
+  password: <%= ENV['LUCIDDREAMER_DATABASE_PASSWORD'] %>

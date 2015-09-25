@@ -1,0 +1,39 @@
+<div id="step-index" class="popular-steps-container">
+  <div data-form="new_step">
+   <%= render "new" %>
+  </div>
+
+  <% if current_dreamer == @creator %>
+    <div class="center">
+      <p><%= link_to "Add to Recipe", new_step_path, class: "button", data: {link: "new_step" } %></p>
+      <h3 class="popular-title">Popular Steps</h3>
+    </div>
+  <% end %>
+
+  <div class="popular-steps-river">
+    <ul data-river="popular_steps">
+      <% @popular_steps.each do |step| %>
+        <%= render partial: "popular_step", locals: {step: step} %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<% if current_dreamer == @creator %>
+  <div class="recipe-container">
+    <div class="center">
+      <h3>My Dream Recipe</h3>
+    </div>
+
+    <div class="recipe-steps-river">
+      <ul data-river="recipe_steps">
+      <%= render @steps %>
+      </ul>
+      <% if @steps.empty? %>
+        <p>Your recipe is currently empty.<br>
+          Check out popular tips other dreamers are using to increase their chances of lucid dreaming and add them to your own recipe list.<br>
+          Did you stumble upon something that possibly got you dreaming? Add it and share it with others!</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,149 @@
+html, body {
+  width: 100%;
+  background-image: asset-url('welcome-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #333;
+}
+
+main {
+  position: relative;
+  font-family: 'Inconsolata', sans-serif;
+  min-height: 100%;
+}
+
+#container {
+  background-color: #FCFCFC;
+  height: 36em;
+  width: 80%;
+  margin: auto;
+  padding: 1em;
+  overflow: scroll;
+}
+
+.title-area {
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.profile-container {
+  li {
+    list-style-type: none;
+  }
+}
+
+nav {
+  a {
+    border-left: 1px solid #999;
+  }
+}
+
+sub {
+  color: #999;
+}
+
+.avatar-icon {
+  border: 1px solid #999;
+  width: 3.5em;
+  height: 3.5em;
+}
+
+.avatar {
+  border: 1px solid #999;
+  width: 6em;
+  height: 6em;
+}
+
+.icon {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.comment, .search,
+.hashtag-search, .inbox, .recipe {
+  text-align: left;
+
+  li {
+    padding: 1.5em;
+    list-style-type: none;
+  }
+
+  li:nth-child(even) {
+    background: #F0F0F5;
+  }
+}
+
+.inbox {
+  text-align: center;
+}
+
+.avatar-icon {
+  border: 1px solid #999;
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.icon {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.messages {
+  text-align: left;
+
+  li {
+    padding: 1.5em;
+    list-style-type: none;
+    border-radius: 1em;
+    clear: both;
+    width: 60%;
+    background: #ECFBF8;
+  }
+
+  .current {
+    float: right;
+    background: #F0F0F5;
+    border-radius: 1em;
+    width: 60%;
+  }
+}
+
+.nav-stacked {
+  list-style-type: none;
+}
+
+.list-group {
+  list-style-type: none;
+}
+
+.list-group-item:nth-child(even) {
+  background: #F0F0F5;
+}
+
+footer {
+  font-size: 0.7em;
+  width: 100%;
+  background: #333;
+}
+
+sub-nav {
+  dd {
+    list-style-type: none;
+  }
+}
+
+a.sub-button {
+  background: #CCC;
+  padding: 0.2em;
+  color: #000;
+}
+
+.empty-hr {
+  border: #FFF solid 1px;
+}
+
+

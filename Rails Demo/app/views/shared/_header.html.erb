@@ -1,0 +1,54 @@
+<div class="sticky">
+  <nav class="top-bar" data-topbar role="navigation" class="row">
+    <ul class="title-area">
+      <li class="name">
+        <h1 class="title-area"><%= link_to "DreamCatcher", root_path %></h1>
+      </li>
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <%= form_tag search_path, method: :get do %>
+              <%= text_field_tag :q, nil, placeholder: "search" %>
+            <% end %>
+          </div>
+          <!-- <div class="large-4 small-3 columns">
+            <a href="#" class="alert button expand">Search</a>
+          </div> -->
+        </div>
+      </li>
+      <li class="toggle-topbar menu-icon">
+        <a href="#"><span>Menu</span></a>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% if current_dreamer %>
+          <li><%= link_to "Dreams", root_path %></li>
+          <li><%= link_to "Recipe", recipe_path(current_dreamer) %></li>
+          <li>
+            <% if got_mail?(current_dreamer) %>
+              <%= link_to image_tag("full-mail-icon.png", class: "mail-icon"), conversations_path %>
+            <% else %>
+              <%= link_to image_tag("empty-mail-icon.png", class: "mail-icon"), conversations_path %>
+            <% end %>
+          </li>
+          <li class="has-dropdown">
+            <%= link_to "#{current_dreamer.username}", profile_path(current_dreamer) %>
+            <ul class="dropdown">
+              <li><%= link_to "Profile", profile_path(current_dreamer) %></li>
+              <li><%= link_to "Reality Check", reality_check_path(current_dreamer) %></li>
+              <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
+
+      </ul>
+    </section>
+  </nav>
+</div>

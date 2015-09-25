@@ -1,0 +1,23 @@
+<div data-div="dream">
+  <%= render partial: "update_dream", locals: {dream: @dream} %>
+</div>
+<div id="dream-show" data-form="edit">
+ <%= render "edit" %>
+</div>
+
+<h3><span data-header="comments-count"><%= @dream.comments.count %></span> Comments</h3>
+
+<% if @dream.comments.empty? %>
+  <p>This dream currently has no comments.<br>
+    Be the first to leave a comment.</p>
+<% end %>
+
+<ul>
+  <div data-div="new-comment" class="comment">
+   <div data-div="edit-comment">
+    <%= render @dream.comments %>
+  </div>
+  </div>
+</ul>
+<hr>
+<%= render "comments/new" %>

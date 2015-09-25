@@ -1,0 +1,17 @@
+<div id="conversation-show" class="panel-heading"><h3><%= @conversation.subject %></h3></div>
+
+<p>Chatting with <%= render 'conversations/participants', conversation: @conversation %></p>
+
+<div class="messages" data-timestamp="" data-method="get" data-action="<%=conversation_shortpoll_path(@conversation) %>" data-info="timestamp">
+  <ul data-ul="messages">
+   <%= render partial: "conversation_river", locals: {conversation: @conversation} %>
+  </ul>
+</div>
+
+<%= form_tag reply_conversation_path(@conversation), method: :post, data: {form: "reply"} do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag "Send Message", class: 'btn btn-primary button' %>
+  <%= link_to "Back to Inbox", conversations_path, class: "button" %>
+<% end %>

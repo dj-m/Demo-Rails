@@ -1,0 +1,7 @@
+<%= erb :'/_errors' %>
+
+<h1>Add a new item</h1>
+<form action="/items" method="post">
+  <%= erb :'/items/_form', locals: { item: @item } %>
+  <input type="submit" value="Create Listing"/>
+</form>

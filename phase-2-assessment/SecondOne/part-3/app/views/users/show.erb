@@ -1,0 +1,23 @@
+<h1><%=current_user.username%>'s profile</h1>
+<h3><a href="/items/new">List a new item</a></h3>
+
+<h4>Your items:</h4>
+<% @items.each do |item| %>
+  <%= item.title %><br>
+  <%= erb :'/users/_item', locals: { item: item } %>
+  <p>Start: <%= item.start_date %> | End: <%= item.end_date %></p><br>
+<% end %>
+
+<h4>Items you've bid on:</h4>
+<% @bid_items.each do |item| %>
+  <li><a href="/items/<%= item.id %>"><%= item.title %></a></li>
+<% end %>
+
+<h4>Items you've won:</h4>
+<% if @won_items.empty? %>
+  <p>YOU'VE WON NOTHING</p>
+<% else %>
+  <% @won_items.each do |item| %>
+      <li><a href="/items/<%=item.id%>"><%= item.title %></a></li>
+    <% end %>
+<% end %>

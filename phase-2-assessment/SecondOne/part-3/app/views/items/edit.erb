@@ -1,0 +1,8 @@
+<%= erb :'/_errors' %>
+
+<h2>Editing: <%= @item.title %></h2>
+<form action="/items/<%= @item.id %>" method="post">
+  <input type="hidden" name="_method" value="put"/>
+<%= erb :'/items/_form', locals: { item: @item } %>
+  <input type="submit" value="Edit Item"/>
+</form>

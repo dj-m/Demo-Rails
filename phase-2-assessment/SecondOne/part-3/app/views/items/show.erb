@@ -1,0 +1,23 @@
+<h2>Item: <%= @item.title %></h2>
+
+<h3>Description: <%= @item.description %> </h3>
+
+<h5>Bidding started: <%= @item.start_date %></h5>
+<h5>Bidding ends on: <%= @item.end_date %></h5>
+<p>Current no. of bids: <%= @item.bids.count %></p>
+<p>Highest bid: $<%= @item.highest_bid %></p>
+
+<% if logged_in? && !current_user.bidded?(@item) && @item.active? %>
+  <form action="/items/<%= @item.id %>/bids" method="post">
+    <label for="bid">Bid Amount:</label>
+    <input type="number" name="bid[price]"><br>
+    <input type="submit" value="Bid on Item!"/>
+  </form>
+<% elsif !@item.active? %>
+  <p>Auction has ended!</p>
+<% elsif current_user.bidded?(@item) %>
+  <p>Thanks for bidding. Good luck!</p>
+<% else %>
+  <p>Login or register to bid on this item. I swear we are legit.</p>
+  <a href="/users/new">Register</a> | <a href="/login">Log In</a>
+<% end %>

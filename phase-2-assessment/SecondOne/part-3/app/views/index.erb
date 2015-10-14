@@ -1,0 +1,11 @@
+<% if current_user %>
+  <h2>Listings:</h2>
+  <% @items.each do |item| %>
+    <a href="/items/<%= item.id %>"><%= item.title %></a><br>
+    Ending: <%= item.end_date %><br><br>
+  <% end %>
+
+<% else %>
+  <h1>I SWEAR WE ARE LEGIT COME BUY STUFF</h1>
+  <a href="/users/new">Register</a> | <a href="/login">Log In</a>
+<% end %>
